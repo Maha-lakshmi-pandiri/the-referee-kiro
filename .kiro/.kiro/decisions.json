@@ -1,0 +1,14 @@
+{
+  "low_traffic_low_latency": {
+    "service": "AWS Lambda",
+    "reason": "Cost efficient for low usage with acceptable cold start delay"
+  },
+  "high_traffic_low_latency": {
+    "service": "EC2",
+    "reason": "Better control and consistent performance"
+  },
+  "high_traffic_high_latency": {
+    "service": "ECS",
+    "reason": "Balances scalability and cost for steady workloads"
+  }
+}

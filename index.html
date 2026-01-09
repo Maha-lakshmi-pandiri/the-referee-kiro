@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Referee – Decision Helper</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg,#1e3c72,#2a5298);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      width: 900px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    select {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .compare-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #1e3c72;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* 👉 Moving Arrow Animation */
+    .arrow {
+      font-size: 28px;
+      animation: moveArrow 1s infinite;
+    }
+
+    @keyframes moveArrow {
+      0% { transform: translateX(0); opacity: 0.3; }
+      50% { transform: translateX(10px); opacity: 1; }
+      100% { transform: translateX(0); opacity: 0.3; }
+    }
+
+    .hint {
+      text-align: center;
+      margin-bottom: 15px;
+      font-weight: bold;
+      color: #1e3c72;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .lambda {
+      background: #e8f5ff;
+      border-left: 6px solid #2196f3;
+    }
+
+    .ec2 {
+      background: #fff3e0;
+      border-left: 6px solid #ff9800;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>The Referee ⚖️</h1>
+  <div class="subtitle">
+    Constraint-based AWS Compute Decision Helper
+  </div>
+
+  <div class="controls">
+    <select id="traffic">
+      <option value="low">Low Traffic</option>
+      <option value="medium">Medium Traffic</option>
+      <option value="high">High Traffic</option>
+    </select>
+
+    <select id="latency">
+      <option value="low">Low Latency Sensitivity</option>
+      <option value="high">High Latency Sensitivity</option>
+    </select>
+
+    <div class="compare-wrapper">
+      <span class="arrow">👉</span>
+      <button onclick="compare()">Compare</button>
+    </div>
+  </div>
+
+  <div class="hint">
+    Select constraints and click Compare to see the best option
+  </div>
+
+  <div id="output"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
